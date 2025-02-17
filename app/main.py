@@ -14,9 +14,9 @@ def create_person_list(people: list) -> list:
         object_list.append(obj)
     for human in people:
         current_person = Person.people[human["name"]]
-        if "wife" in human and human["wife"] is not None:
+        if human.get("wife"):
             current_person.wife = Person.people[human["wife"]]
-        if "husband" in human and human["husband"] is not None:
+        if human.get("husband"):
             current_person.husband = Person.people[human["husband"]]
 
     return object_list
